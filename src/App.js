@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
+import Formulario from './components/Formulario';
+import Header from './components/Header';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+	state = {
+		cita: []
+	}
+
+	crearNuevaCita = (datos) =>{
+		
+		const citas = [...this.state.cita, datos]
+		this.setState({
+			cita: citas
+		})
+
+	}
+
+	render() {
+		return (
+			<div className="wrapper">
+				<Header title="Administrar Paccientes Veterinaria"/>
+				<Formulario crearNuevaCita={this.crearNuevaCita}/>
+			</div>
+		);
+	}
 }
-
+ 
 export default App;
