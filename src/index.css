@@ -43,3 +43,25 @@ code {
   margin-bottom: 30px;
   box-sizing: border-box;
 }
+
+@media (max-width: 960px) {
+  .wrapper_box {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 960px) {
+  .wrapper_box >* {
+    width: 33.33333333%;
+  }
+}
+@media (max-width: 768px) {
+  .wrapper_box >* {
+    width: 50%;
+  }
+}
+@media (max-width: 480px) {
+  .wrapper_box >* {
+    width: 100%;
+  }
+}
