@@ -15,6 +15,9 @@ const Cita = ({cita, eliminarCita}) => {
 			<div className="fecha">
 				<p><strong>Fecha: </strong>{cita.fecha}</p>
 			</div>
+			<div className="fecha">
+				<p><strong>Sintomas: </strong>{cita.sintomas}</p>
+			</div>
 			<div className="btn">
 				<button onClick={()=> eliminarCita(cita.id)} className="button is-danger">Danger</button>
 			</div>

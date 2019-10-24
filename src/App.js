@@ -44,7 +44,7 @@ class App extends Component {
 		}).then((willDelete) => {
 			swal(`The returned value is: ${id}`);
 			if (willDelete) {
-				swal("Se Eliminó Correctatamente la Cita.", {
+				swal("Se Eliminó Correctamente la Cita.", {
 					icon: "success",
 				});
 				const cita = citasActuales.filter(cita => cita.id !== id)
