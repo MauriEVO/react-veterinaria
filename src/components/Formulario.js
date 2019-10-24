@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import uuid from 'uuid';
+import swal from '@sweetalert/with-react'
+
+//import cssSweetAlert from 'sweetalert/dist/sweetalert.css';
 
 
 /* el estado inicial para empezar con los campos limpios */
-/* */ 
 const stateInicial = {
 	citas:{
 		nombre: '',
@@ -11,8 +13,7 @@ const stateInicial = {
 		fecha:'',
 		hora:'',
 		sintomas:''
-	},
-	error: false
+	}
 }
 
 class Formulario extends Component {
@@ -20,6 +21,19 @@ class Formulario extends Component {
 	/* colocamos el estado inicial para comenzar con el procesos del llenado de datos */ 
 	
 	state = { ...stateInicial }
+
+	showAlertError = () =>{
+		swal({
+			title: "Error",
+			text: "Todos los campos son obligatorios, Gracias!",
+			icon: "error",
+			buttons: {
+				cancel: "Ok",
+			}
+		})
+	}
+
+	
 
 	/* obtenemos el nomre del inpiut y su valor para llenar los campos*/ 
 	handleChange = (e) =>{
@@ -39,9 +53,8 @@ class Formulario extends Component {
 		const {nombre, mascota, hora, fecha, sintomas} = this.state.citas
 
 		if(nombre === '' || mascota ==='' || hora === ''|| fecha === '' || sintomas === ''){
-			this.setState({
-				error: true
-			})
+		
+			this.showAlertError()
 			return;
 		}
 
@@ -65,13 +78,8 @@ class Formulario extends Component {
 
 	render() {
 
-		const {error} = this.state
-
 		return (
 			<div className="container_formulario">
-				
-				{ error ? <h2>LLenar todo los campos</h2> : null }
-
 				<form onSubmit={this.handleSubmit}>
 					<div className="field">
 						<label className="label has-text-white">Nombre del dueño</label>
@@ -79,7 +87,7 @@ class Formulario extends Component {
 							<input 
 								className="input" 
 								type="text" 
-								placeholder="Nombre del dueño" 
+								placeholder="Nombre del dueño*" 
 								name="nombre"
 								onChange={this.handleChange}
 								value={this.state.citas.nombre}
@@ -92,7 +100,7 @@ class Formulario extends Component {
 							<input 
 								className="input" 
 								type="text" 
-								placeholder="Nombre de la mascota"
+								placeholder="Nombre de la mascota*"
 								name="mascota"
 								onChange={this.handleChange}
 								value={this.state.citas.mascota}

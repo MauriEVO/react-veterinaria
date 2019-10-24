@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@sweetalert/with-react": "^0.1.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-scripts": "3.2.0",
+    "sweetalert": "^2.1.2",
+    "sweetalert-react": "^0.4.11",
     "uuid": "^3.3.3"
   },
   "scripts": {

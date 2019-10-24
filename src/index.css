@@ -19,3 +19,27 @@ code {
   width: 94%;
   margin: auto;
 }
+.citas_item strong{
+  color :peru;
+}
+.container{
+  color :#fff;
+  padding-top: 50px;
+}
+.wrapper_box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.wrapper_items h2{
+  padding-bottom: 40px;
+  text-align: center;
+  font-size: 40px;
+
+}
+.wrapper_box >*{
+  width: 25%;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+}
